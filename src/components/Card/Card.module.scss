@@ -1,0 +1,308 @@
+@import '../../assets/styles/variables.scss';
+@import '../../assets/fonts/fonts.scss';
+
+/* CARD */
+
+.card {
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  width: 320px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+@media screen and (max-width: 1160px) {
+  .card {
+    margin: 24px auto 0;
+  }
+}
+
+.card__border,
+.card__backdrop {
+  height: 480px;
+  width: 320px;
+  border-radius: 12px;
+}
+
+.card__border {
+  background: linear-gradient(135deg, transparent 30px, transparent 30px, $color-blue 30px);
+  margin-bottom: 14px;
+}
+
+.card__backdrop {
+  position: relative;
+  box-sizing: border-box;
+  padding: 17px 12px 12px 47px;
+  background: linear-gradient(135deg, transparent 28px, transparent 28px, $color-card 28px);
+  border: 4px solid transparent;
+  background-clip: padding-box;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card__backdrop::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 480px;
+  width: 320px;
+  pointer-events: none;
+}
+
+.containerImage {
+  margin-top: 33px;
+  width: 368px;
+  height: 360px;
+
+  .image {
+    transform: translate(-74px);
+    width: 368px;
+    height: 360px;
+  }
+}
+
+.servingsImage {
+  margin-top: 17px;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min--moz-device-pixel-ratio: 2),
+  only screen and (-o-min-device-pixel-ratio: 2/1),
+  only screen and (min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx) {
+  .card__backdrop {
+    background: linear-gradient(135deg, transparent 28px, transparent 28px, $color-card 28px);
+    background-clip: padding-box;
+  }
+
+  .containerImage {
+    margin-top: 33px;
+    width: 368px;
+    height: 360px;
+
+    .image {
+      transform: translate(-74px);
+      width: 368px;
+      height: 360px;
+    }
+  }
+
+  .servingsImage {
+    margin-top: 17px;
+  }
+}
+
+.card__backdrop::before {
+  content: '';
+  position: absolute;
+  height: 88px;
+  width: 88px;
+  background: transparent;
+  transform: rotate(45deg);
+  top: -48px;
+  left: -67px;
+  box-shadow: 4px 0 0 $color-blue;
+}
+
+/* TEXT */
+
+.card__text {
+  text-align: left;
+}
+
+p,
+.card__flavor {
+  margin: 0;
+}
+
+.card__tagline,
+.card__purchase_info {
+  color: $color-text;
+}
+
+.card__tagline {
+  font-size: 16px;
+}
+
+.card__title {
+  font-size: 48px;
+  margin: 5px 0 0 -3px;
+}
+
+.card__flavor {
+  font-size: 24px;
+  margin-top: -1px;
+}
+
+.card__purchase_info {
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.card__servings_info,
+.card__gift_info {
+  font-weight: 700;
+}
+
+/* WEIGHT LABEL */
+
+.card__weight_label {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  background: $color-blue;
+  color: $color-white;
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  padding: 15px 0 12px 0;
+  text-align: center;
+  box-sizing: border-box;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.card__amount {
+  font-size: 42px;
+  line-height: 32px;
+}
+
+.card__unit {
+  font-size: 21px;
+  line-height: 27px;
+}
+
+/* CARD MESSAGE */
+
+.message {
+  font-size: 13px;
+  color: $color-white;
+}
+
+.message__purchase_button {
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  font-size: 13px;
+  color: $color-blue;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.message__purchase_button:before {
+  position: absolute;
+  bottom: 0px;
+  content: '';
+  height: 1px;
+  width: 84%;
+  border-bottom: 1px dashed currentColor;
+}
+
+/* COLOR CHANGES */
+
+.card__border,
+.card__backdrop::before,
+.card__weight_label,
+.message__purchase_button {
+  transition: all 0.1s;
+}
+
+/* Hover */
+
+.card_default:hover .card__border {
+  background: linear-gradient(135deg, transparent 30px, transparent 30px, $color-blue-hover 30px);
+}
+
+.card_default:hover .card__backdrop::before {
+  box-shadow: 4px 0 0 $color-blue-hover;
+}
+
+.card_default:hover .card__weight_label {
+  background: $color-blue-hover;
+}
+
+.card_default:hover .message__purchase_button {
+  color: $color-blue-hover;
+}
+
+/* Selected */
+
+.card_selected .card__border,
+.card_selected_initial .card__border {
+  background: linear-gradient(135deg, transparent 30px, transparent 30px, $color-pink 30px);
+}
+
+.card_selected .card__backdrop::before,
+.card_selected_initial .card__backdrop::before {
+  box-shadow: 4px 0 0 $color-pink;
+}
+
+.card_selected .card__weight_label,
+.card_selected_initial .card__weight_label {
+  background: $color-pink;
+}
+
+/* Hover - Selected */
+
+.card_selected:hover .card__border {
+  background: linear-gradient(135deg, transparent 30px, transparent 30px, $color-pink-hover 30px);
+}
+
+.card_selected:hover .card__backdrop::before {
+  box-shadow: 4px 0 0 $color-pink-hover;
+}
+
+.card_selected:hover .card__weight_label {
+  background: $color-pink-hover;
+}
+
+/* Not-Hover - Selected */
+
+.card_selected:not(:hover) .card__tagline {
+  display: none;
+}
+
+.card_selected:not(:hover) .card__tagline_nothover::before {
+  content: 'Котэ не одобряет?';
+  color: $color-pink-hover;
+}
+
+/* Disabled */
+
+.card_disabled .card__border {
+  background: linear-gradient(
+    135deg,
+    transparent 30px,
+    transparent 30px,
+    $color-card-disabled 30px
+  );
+}
+
+.card_disabled .card__backdrop {
+  cursor: default;
+}
+
+.card_disabled .card__backdrop::after {
+  opacity: 0.5;
+}
+
+.card_disabled .card__backdrop::before {
+  box-shadow: 4px 0 0 $color-card-disabled;
+}
+
+.card_disabled .card__weight_label {
+  background: $color-card-disabled;
+}
+
+.card_disabled .card__text,
+.card_disabled .card__tagline,
+.card_disabled .card__purchase_info {
+  color: $color-card-disabled;
+  opacity: 0.5;
+}
+
+.message_disabled {
+  color: $color-message-disabled;
+}

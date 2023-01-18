@@ -1,0 +1,25 @@
+.app {
+  width: 95%;
+  max-width: 1120px;
+  text-align: center;
+  margin: auto;
+
+  .cardsDisplay {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 1160px) {
+  .app {
+    max-width: 750px;
+    padding: 2rem 0 2.5rem;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .app {
+    max-width: 500px;
+  }
+}
